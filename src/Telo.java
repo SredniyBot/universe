@@ -1,64 +1,66 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.sql.Date;
+import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 
 public class Telo {
 	public int m;
+	public int Size=10;
 	public double vx,vy,x,y;
-	public Color c;
 	public static boolean sled =true;
 	public static long millis;
-	public ArrayList<Point> t=new ArrayList<>();
-Telo(int m,double x,double y,double vx,double vy,Color c){
+	Traectory t;
+	public RoundRectangle2D.Double rect;
+Telo(int m,double x,double y,double vx,double vy){
 	Point p = new Point((int)x,(int)y);
-	t.add(p);
+	t =new Traectory(p);
 	this.x=x;
 	this.y=y;
 	this.vx=vx;
 	this.m=m;
 	this.vy=vy;
-	this.c=c;
+	rect=new RoundRectangle2D.Double(x,y,Size,Size,Size,Size);
 }
 
 public void update() {
-	
 	x+=vx;
 	y+=vy;
+	rect.setRoundRect(x,y,Size,Size,Size,Size);
 }
 
 public void draw(Graphics g) {
-	g.setColor(c);
+	g.setColor(c(m));
 	if(sled) {
 		if(System.currentTimeMillis()%10==0) {
-			Point p = new Point((int)x,(int)y);
-			t.add(p);
+			t.add(new Point((int)x,(int)y));
 		}
-		for(int i = 1;i<t.size();i++) {
-			g.drawLine(t.get(i-1).x, t.get(i-1).y, t.get(i).x, t.get(i).y);
-		}
+		t.draw(g,c(m));
 	}
-	g.fillOval((int)(x-m/2), (int)(y-m/2), m, m);
-	if(x+m<0&&y+m<0) {
+	g.fillOval((int)(x- Size /2), (int)(y- Size /2), Size, Size);
+	if(x+ Size <0&&y+ Size <0) {
 		g.fillRect(0, 0, 10, 10);
-	}else if(x-m>Prog.width&&y-m>Prog.height) {
+	}else if(x- Size >Prog.width&&y- Size >Prog.height) {
 		g.fillRect(Prog.width-25, Prog.height-50, 30, 50);
-	}else if(x-m>Prog.width&&y+m<0) {
+	}else if(x- Size >Prog.width&&y+ Size <0) {
 		g.fillRect(Prog.width-25,0, 30, 10);
-	}else if(x+m<0&&y-m>Prog.height) {
+	}else if(x+ Size <0&&y- Size >Prog.height) {
 		g.fillRect(0, Prog.height-50, 10, 50);
-	}else if(x+m<0) {
+	}else if(x+ Size <0) {
 		g.fillRect(0, (int)y, 10, 1);
-	}else if(y+m<0) {
+	}else if(y+ Size <0) {
 		g.fillRect((int)x, 0, 1, 10);
-	}else if(x-m>Prog.width) {
+	}else if(x- Size >Prog.width) {
 		g.fillRect(Prog.width-40,(int)y, 30, 1);	
-	}else if(y-m>Prog.height) {
+	}else if(y- Size >Prog.height) {
 		g.fillRect((int)x,  Prog.height-50, 1, 50);
 	}
-	
-	
-	
 }
+
+	private static Color c(int Size){
+		return  new Color((Size-TeloCollection.minSize)*255/(TeloCollection.maxSize-TeloCollection.minSize),
+				255-(Size-TeloCollection.minSize)*255/(TeloCollection.maxSize-TeloCollection.minSize),0);//Arduino map
+	}
+
+
 }
