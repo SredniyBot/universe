@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4965877-5387-4093-bedb-ea3df05500a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Universe.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/Panel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/Prog.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/Telo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bin/TeloCollection.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Prog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Telo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TeloCollection.java" afterDir="false" />
-    </list>
+    <list default="true" id="f4965877-5387-4093-bedb-ea3df05500a6" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +65,14 @@
       <option name="presentableId" value="Default" />
       <updated>1581262150297</updated>
     </task>
+    <task id="LOCAL-00001" summary="created git">
+      <created>1581263573141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581263573141</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -94,5 +85,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created git" />
+    <option name="LAST_COMMIT_MESSAGE" value="created git" />
   </component>
 </project>
