@@ -8,7 +8,7 @@ public class Telo {
 	public int m;
 	public int Size=10;
 	public double vx,vy,x,y;
-	public static boolean sled =true;
+
 	public static long millis;
 	Traectory t;
 	public RoundRectangle2D.Double rect;
@@ -30,30 +30,32 @@ public void update() {
 }
 
 public void draw(Graphics g) {
+	int w=Panel.width();
+	int h=Panel.height();
 	g.setColor(c(m));
-	if(sled) {
-		if(System.currentTimeMillis()%10==0) {
-			t.add(new Point((int)x,(int)y));
-		}
+	if(System.currentTimeMillis()%10==0) {
+		t.add(new Point((int)x,(int)y));
+	}
+	if(TeloCollection.sled) {
 		t.draw(g,c(m));
 	}
 	g.fillOval((int)(x- Size /2), (int)(y- Size /2), Size, Size);
-	if(x+ Size <0&&y+ Size <0) {
-		g.fillRect(0, 0, 10, 10);
-	}else if(x- Size >Prog.width&&y- Size >Prog.height) {
-		g.fillRect(Prog.width-25, Prog.height-50, 30, 50);
-	}else if(x- Size >Prog.width&&y+ Size <0) {
-		g.fillRect(Prog.width-25,0, 30, 10);
-	}else if(x+ Size <0&&y- Size >Prog.height) {
-		g.fillRect(0, Prog.height-50, 10, 50);
-	}else if(x+ Size <0) {
-		g.fillRect(0, (int)y, 10, 1);
-	}else if(y+ Size <0) {
-		g.fillRect((int)x, 0, 1, 10);
-	}else if(x- Size >Prog.width) {
-		g.fillRect(Prog.width-40,(int)y, 30, 1);	
-	}else if(y- Size >Prog.height) {
-		g.fillRect((int)x,  Prog.height-50, 1, 50);
+	if(x+ Size+Panel.transX <0&&y+ Size+Panel.transY <0) {
+		g.fillRect(-Panel.transX, -Panel.transY, 10, 10);
+	}else if(x- Size >w&&y- Size >h) {
+		g.fillRect(w-25, h-50, 30, 50);
+	}else if(x- Size >w&&y+ Size+Panel.transY <0) {
+		g.fillRect(w-25,-Panel.transY, 30, 10);
+	}else if(x+ Size+Panel.transX <0&&y- Size >h) {
+		g.fillRect(-Panel.transX, h-50, 10, 50);
+	}else if(x+ Size+Panel.transX <0) {
+		g.fillRect(-Panel.transX, (int)y, 10, 1);
+	}else if(y+ Size+Panel.transY <0) {
+		g.fillRect((int)x, -Panel.transY, 1, 10);
+	}else if(x- Size >w) {
+		g.fillRect(w-40,(int)y, 30, 1);
+	}else if(y- Size >h) {
+		g.fillRect((int)x,  h-50, 1, 50);
 	}
 }
 

@@ -3,14 +3,15 @@ import java.util.ArrayList;
 
 public class TeloCollection {
 public static double G=0.0667/10,vyo,vxo;
+public static boolean sled =true;
 public static int minSize,maxSize;
 	static ArrayList<Telo> l = new ArrayList<Telo>();
 	static ArrayList<Traectory> tr= new ArrayList<Traectory>();
-	private static int[] m =	{100    ,60     ,40     ,15    ,30     };
-	private static int[] x =	{1320 ,100    ,1800   ,1580  ,-10  };
-	private static int[] y =	{500  ,550    ,550    ,550   ,0   };
-	private static double[] vx ={0.006,0.009  ,-0.009 ,-0.003,0.0005 };
-	private static double[] vy ={-0.01,-0.0004,-0.0004,-0.006,0.00   };
+	private static int[] m =	{200    ,10     ,10     ,20       };
+	private static int[] x =	{600 ,700    ,400   ,900    };
+	private static int[] y =	{500  ,500    ,500    ,500  };
+	private static double[] vx ={0,0  ,0 ,0,0 };
+	private static double[] vy ={0,-0.05,0.04,-0.03  };
 	static {
 		//Telo solnce = new Telo(20000000,-40000000,0, 0, 0,Color.YELLOW);
 		//l.add(solnce);
@@ -98,11 +99,22 @@ public static int minSize,maxSize;
 	
 	}
 	
-public static void resize(int r,double mx,double my) {
-	for(int i = 0;i<l.size();i++) {
-		l.get(i).x+=(-mx+l.get(i).x)/Math.sqrt((mx-l.get(i).x)*(mx-l.get(i).x)+(l.get(i).y-my)*(l.get(i).y-my))*r;
-		l.get(i).y+=(-my+l.get(i).y)/Math.sqrt((mx-l.get(i).x)*(mx-l.get(i).x)+(l.get(i).y-my)*(l.get(i).y-my))*r;
-		l.get(i).Size *=r;
+	public static void resize(int r,double mx,double my) {
+		if(r>0) {
+			for (int i = 0; i < l.size(); i++) {
+				if (l.get(i).Size > 10) {
+					l.get(i).Size/=2;
+					l.get(i).x/=2;
+					l.get(i).y/=2;
+					l.get(i).vx/=2;
+					l.get(i).vy/=2;
+					Panel.transX+=mx;
+					Panel.transY+=my;
+				}
+			}
+		}
 	}
-	}
-	}
+
+
+
+}

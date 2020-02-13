@@ -2,21 +2,24 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.*;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class Panel extends JPanel implements MouseListener,MouseMotionListener,MouseWheelListener, KeyListener {
 
 	private static final long serialVersionUID = 1L;
 private static double plusx,plusy,plusx1,plusy1;
 private static boolean StoppedTime=false;
+public static int transX=0,transY=0;
 	public void paint(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 1600, 900);
+		g.translate(transX,transY);
 		TeloCollection.paint(g);
 		if(!StoppedTime){
 			TeloCollection.update();
 		}
 		Crs.pointer(g);
+
 		repaint();
 		}
 
@@ -59,10 +62,8 @@ private static boolean StoppedTime=false;
 
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
-	//System.out.println(e.getWheelRotation());
 	
-	
-	//TeloCollection.resize(e.getWheelRotation()*-10, e.getX(), e.getY());
+		TeloCollection.resize(e.getWheelRotation()*-10, e.getX(), e.getY());
 	}
 
 	@Override
@@ -72,6 +73,16 @@ private static boolean StoppedTime=false;
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyChar()==' '){
 			StoppedTime=!StoppedTime;
+		}
+		if(e.getKeyChar()=='s'){
+			TeloCollection.sled=!TeloCollection.sled;
+		}
+		if(e.getKeyChar()=='c'){
+			int m=Integer.parseInt(JOptionPane.showInputDialog("Enter mass"));
+			double vx=Double.parseDouble(JOptionPane.showInputDialog("Enter vx"));
+			double vy=Double.parseDouble   (JOptionPane.showInputDialog("Enter vy"));
+			Telo t = new Telo(m,Crs.mX,Crs.mY,vx,vy);
+			TeloCollection.l.add(t);
 		}
 	}
 
@@ -87,5 +98,11 @@ private static boolean StoppedTime=false;
 	public void mouseMoved(MouseEvent e) {
 		Crs.mX= e.getX();
 		Crs.mY=e.getY();
+	}
+	public static int width(){
+		return Prog.width-transX;
+	}
+	public static int height(){
+		return Prog.height-transY;
 	}
 }

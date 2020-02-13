@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4965877-5387-4093-bedb-ea3df05500a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Crs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traectory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Panel.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Panel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Prog.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Prog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Telo.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Telo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/TeloCollection.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/TeloCollection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Prog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Prog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Telo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Telo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TeloCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TeloCollection.java" afterDir="false" />
     </list>
@@ -109,7 +104,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
